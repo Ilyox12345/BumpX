@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique de confidentialité - BumpX</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        nav {
+            padding: 25px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #5865F2, #3b4de0);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #5865F2, #3b4de0);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(88, 101, 242, 0.4);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+            margin-bottom: 100px;
+        }
+
+        .content-box {
+            background: white;
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
+
+        .update-date {
+            color: #4a5568;
+            font-size: 14px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2 i {
+            color: #5865F2;
+            font-size: 24px;
+        }
+
+        h3 {
+            font-size: 20px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #4a5568;
+        }
+
+        ul {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: #4a5568;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #f5f7fa, #e0e7ff);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 4px solid #5865F2;
+        }
+
+        .info-box strong {
+            color: #1a1a1a;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .success-box {
+            background: linear-gradient(135deg, #f0fff4, #c6f6d5);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 4px solid #38a169;
+        }
+
+        .success-box strong {
+            color: #22543d;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        th {
+            background: linear-gradient(135deg, #5865F2, #3b4de0);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        a {
+            color: #5865F2;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #1a1a1a, #2d3748);
+            padding: 0,5px;
+            text-align: center;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #e2e8f0;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        @media (max-width: 768px) {
+            .content-box {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            nav {
+                padding: 20px;
+            }
+
+            footer {
+                position: relative;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-robot"></i>
+            </div>
+            BumpX
+        </a>
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+            Retour à l'accueil
+        </a>
+    </nav>
+
+    <div class="container">
+        <div class="content-box">
+            <h1>Politique de confidentialité</h1>
+            <div class="update-date">
+                <i class="far fa-calendar"></i>
+                Dernière mise à jour : 15 novembre 2025
+            </div>
+
+            <p>Chez BumpX, nous prenons la protection de vos données personnelles très au sérieux. Cette politique de confidentialité explique quelles informations nous collectons, comment nous les utilisons et quels sont vos droits.</p>
+
+            <div class="success-box">
+                <strong><i class="fas fa-check-circle"></i> Notre engagement :</strong>
+                <p style="margin: 0;">Nous ne vendons jamais vos données à des tiers et nous ne collectons que les informations strictement nécessaires au fonctionnement du bot.</p>
+            </div>
+
+            <h2><i class="fas fa-database"></i> Données collectées</h2>
+            <p>Pour fonctionner correctement, BumpX collecte et stocke les informations suivantes :</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type de données</th>
+                        <th>Description</th>
+                        <th>Utilisation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ID de serveur Discord</strong></td>
+                        <td>Identifiant unique de votre serveur</td>
+                        <td>Identifier votre serveur et enregistrer vos configurations</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ID utilisateur Discord</strong></td>
+                        <td>Identifiant unique des utilisateurs qui utilisent les commandes</td>
+                        <td>Gérer les permissions et enregistrer les actions</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Configurations de bump</strong></td>
+                        <td>Messages personnalisés, fréquence, salons configurés</td>
+                        <td>Personnaliser le fonctionnement du bot selon vos préférences</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Statistiques d'utilisation</strong></td>
+                        <td>Nombre de bumps effectués, dates et heures</td>
+                        <td>Afficher vos statistiques et améliorer le service</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Données que nous ne collectons PAS</h3>
+            <ul>
+                <li>Messages privés ou contenu des discussions</li>
+                <li>Informations personnelles (nom, email, adresse)</li>
+                <li>Historique de navigation</li>
+                <li>Données bancaires ou financières</li>
+            </ul>
+
+            <h2><i class="fas fa-tasks"></i> Utilisation des données</h2>
+            <p>Nous utilisons vos données uniquement pour :</p>
+            <ul>
+                <li><strong>Fournir le service :</strong> Exécuter les fonctionnalités de bump automatique</li>
+                <li><strong>Personnalisation :</strong> Appliquer vos configurations et préférences</li>
+                <li><strong>Statistiques :</strong> Afficher le nombre de serveurs et de bumps effectués</li>
+                <li><strong>Amélioration :</strong> Analyser l'utilisation pour améliorer le bot</li>
+                <li><strong>Support technique :</strong> Résoudre les problèmes signalés</li>
+            </ul>
+
+            <h2><i class="fas fa-lock"></i> Protection des données</h2>
+            <p>Nous mettons en œuvre des mesures de sécurité pour protéger vos données :</p>
+            <ul>
+                <li>Stockage sécurisé dans une base de données chiffrée</li>
+                <li>Accès restreint aux données (aucun partage avec des tiers)</li>
+                <li>Sauvegardes régulières pour éviter la perte de données</li>
+                <li>Surveillance continue contre les accès non autorisés</li>
+            </ul>
+
+            <h2><i class="fas fa-share-alt"></i> Partage des données</h2>
+            <div class="info-box">
+                <strong>Nous ne partageons JAMAIS vos données avec :</strong>
+                <ul style="margin-top: 10px;">
+                    <li>Des annonceurs</li>
+                    <li>Des entreprises tierces</li>
+                    <li>Des courtiers en données</li>
+                </ul>
+            </div>
+
+            <p>Les seules exceptions sont :</p>
+            <ul>
+                <li><strong>Discord :</strong> Le bot utilise l'API Discord et respecte leurs conditions d'utilisation</li>
+                <li><strong>Obligations légales :</strong> Si la loi nous y oblige (enquête judiciaire, etc.)</li>
+            </ul>
+
+            <h2><i class="fas fa-clock"></i> Conservation des données</h2>
+            <p>Nous conservons vos données tant que le bot est actif sur votre serveur. Lorsque vous retirez le bot de votre serveur :</p>
+            <ul>
+                <li>Les configurations sont supprimées immédiatement</li>
+                <li>Les statistiques peuvent être conservées de manière anonymisée pour nos analyses</li>
+                <li>Vous pouvez demander la suppression complète de toutes vos données</li>
+            </ul>
+
+            <h2><i class="fas fa-user-shield"></i> Vos droits (RGPD)</h2>
+            <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :</p>
+
+            <h3>Droit d'accès</h3>
+            <p>Vous pouvez demander à consulter toutes les données que nous avons collectées sur votre serveur.</p>
+
+            <h3>Droit de rectification</h3>
+            <p>Vous pouvez modifier vos configurations à tout moment via les commandes du bot.</p>
+
+            <h3>Droit à l'effacement</h3>
+            <p>Vous pouvez demander la suppression complète de vos données en nous contactant.</p>
+
+            <h3>Droit d'opposition</h3>
+            <p>Vous pouvez vous opposer au traitement de vos données en retirant le bot de votre serveur.</p>
+
+            <h3>Droit à la portabilité</h3>
+            <p>Vous pouvez demander à recevoir vos données dans un format structuré et lisible.</p>
+
+            <div class="info-box">
+                <strong>Pour exercer vos droits, contactez-nous :</strong><br>
+                Email : <a href="mailto:contact@bumpx.com">contact@bumpx.com</a><br>
+                Discord : <a href="https://discord.gg/NvGhTMnqc6" target="_blank">Serveur Support</a><br>
+                <em style="display: block; margin-top: 10px; font-size: 14px;">Nous répondons sous 30 jours maximum.</em>
+            </div>
+
+            <h2><i class="fas fa-cookie-bite"></i> Cookies</h2>
+            <p>Notre site web n'utilise pas de cookies de tracking ou de publicité. Nous n'utilisons que des cookies techniques essentiels au fonctionnement du site.</p>
+
+            <h2><i class="fas fa-child"></i> Protection des mineurs</h2>
+            <p>BumpX ne cible pas spécifiquement les mineurs. Conformément aux conditions d'utilisation de Discord, les utilisateurs doivent avoir au moins 13 ans (ou l'âge minimum légal dans leur pays).</p>
+
+            <h2><i class="fas fa-globe"></i> Transfert de données</h2>
+            <p>Vos données sont stockées sur des serveurs situés dans l'Union Européenne. Nous ne transférons pas vos données en dehors de l'UE.</p>
+
+            <h2><i class="fas fa-edit"></i> Modifications de la politique</h2>
+            <p>Nous pouvons modifier cette politique de confidentialité à tout moment. En cas de changement majeur, nous vous en informerons via :</p>
+            <ul>
+                <li>Une annonce sur notre serveur Discord</li>
+                <li>Une notification via le bot</li>
+                <li>Une mise à jour de la date en haut de cette page</li>
+            </ul>
+
+            <h2><i class="fas fa-link"></i> Services tiers</h2>
+            <p>BumpX utilise les services suivants :</p>
+            <ul>
+                <li><strong>Discord :</strong> Plateforme d'hébergement du bot - <a href="https://discord.com/privacy" target="_blank">Politique de confidentialité Discord</a></li>
+                <li><strong>Hébergement :</strong> [Nom de votre hébergeur] - Les données sont stockées de manière sécurisée</li>
+            </ul>
+
+            <h2><i class="fas fa-question-circle"></i> Questions</h2>
+            <p>Si vous avez des questions concernant cette politique de confidentialité ou sur la manière dont nous traitons vos données, n'hésitez pas à nous contacter :</p>
+
+            <div class="info-box">
+                <strong>Contact :</strong><br>
+                Email : <a href="mailto:contact@bumpx.com">contact@bumpx.com</a><br>
+                Discord : <a href="https://discord.gg/NvGhTMnqc6" target="_blank">Serveur Support</a><br>
+                <em style="display: block; margin-top: 10px; font-size: 14px;">Nous nous engageons à vous répondre dans les meilleurs délais.</em>
+            </div>
+
+            <p style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #e2e8f0; font-style: italic; color: #718096;">
+                En utilisant BumpX, vous acceptez la collecte et l'utilisation de vos données conformément à cette politique de confidentialité.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">
+                <i class="fas fa-home"></i>
+                Accueil
+            </a>
+            <a href="./conditions_utilisation.html">
+                <i class="fas fa-file-contract"></i>
+                Conditions d'utilisation
+            </a>
+            <a href="./mentions_legales.html">
+                <i class="fas fa-balance-scale"></i>
+                Mentions légales
+            </a>
+        </div>
+        <div style="opacity: 0.7; margin-top: 20px;">
+            © 2025 BumpX. Tous droits réservés.
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Owners - BumpX</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+
+        .shapes {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.08;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape-circle {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            top: 10%;
+            left: 10%;
+        }
+
+        .shape-square {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #5865F2, #3b4de0);
+            border-radius: 30px;
+            top: 60%;
+            right: 10%;
+            animation-delay: -5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        nav {
+            padding: 25px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #5865F2, #3b4de0);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #5865F2, #3b4de0);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(88, 101, 242, 0.4);
+        }
+
+        .header {
+            text-align: center;
+            padding: 80px 20px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
+
+        .header p {
+            font-size: 20px;
+            color: #4a5568;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px 100px;
+        }
+
+        .owners-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .owner-card {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .owner-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .owner-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        .owner-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            position: relative;
+        }
+
+        .owner-avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .crown-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .owner-name {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .owner-role {
+            font-size: 16px;
+            color: #5865F2;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .owner-description {
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .owner-socials {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f5f7fa, #e0e7ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #5865F2;
+            font-size: 20px;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, #5865F2, #3b4de0);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #5865F2;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: #718096;
+            margin-top: 5px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #1a1a1a, #2d3748);
+            padding: 15px;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #e2e8f0;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .footer-links a:hover {
+            color: #5865F2;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .header p {
+                font-size: 16px;
+            }
+
+            nav {
+                padding: 20px;
+            }
+
+            .owners-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="shapes">
+        <div class="shape shape-circle"></div>
+        <div class="shape shape-square"></div>
+    </div>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-robot"></i>
+            </div>
+            BumpX
+        </a>
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+            Retour à l'accueil
+        </a>
+    </nav>
+
+    <div class="header">
+        <h1>L'équipe derrière BumpX</h1>
+        <p>Rencontrez les développeurs passionnés qui rendent BumpX possible</p>
+    </div>
+
+    <div class="container">
+        <div class="owners-grid">
+            <!-- Owner 1 -->
+            <div class="owner-card">
+                <div class="owner-avatar">
+                    <div class="crown-badge">👑</div>
+                    <img src="./flana.gif" alt="Flana">
+                    <!-- Pour utiliser une vraie image : <img src="avatar1.jpg" alt="Owner 1"> -->
+                </div>
+                <h2 class="owner-name">Flana</h2>
+                <div class="owner-role">Fondateur & Développeur</div>
+                <p class="owner-description">
+                    Créateur principal de BumpX, passionné par le développement Discord et l'automatisation. Toujours à l'écoute de la communauté pour améliorer le bot.
+                    Modérateur pour Katabump 
+                </p>
+                <div class="owner-socials">
+                    <a href="https://discord.gg/5fkAUGrhng" class="social-link" target="_blank" title="Discord">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                </div>
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-value">2+</span>
+                        <span class="stat-label">Ans d'expérience</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Owner 2 -->
+            <div class="owner-card">
+                <div class="owner-avatar">
+                    <div class="crown-badge">👑</div>
+                    <img src="./ilyox.webp" alt="Owner 2">                    <!-- Pour utiliser une vraie image : <img src="avatar2.jpg" alt="Owner 2"> -->
+                </div>
+                <h2 class="owner-name">Ilyox.fr</h2>
+                <div class="owner-role">Fondateur</div>
+                <p class="owner-description">
+                    Developpeur , informaticien et pasionné par les technologies , j'aime créer des solutions innovantes pour simplifier la vie des utilisateurs !
+                </p>
+                <div class="owner-socials">
+                    <a href="https://discord.gg/DKNYmxbCCd" class="social-link" target="_blank" title="Discord">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="https://github.com/ilyoxxx" class="social-link" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://ilyox.fr" class="social-link" target="_blank" title="Twitter">
+                        <i class="fas fa-window-maximize"></i>
+                    </a>
+                </div>
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-value">4+</span>
+                        <span class="stat-label">Ans d'expérience</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">30+</span>
+                        <span class="stat-label">Projets réalisés</span>
+                    </div>
+                </div>
+            </div>
+
+         
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">
+                <i class="fas fa-home"></i>
+                Accueil
+            </a>
+            <a href="./politique_confidentialite.html">
+                <i class="fas fa-shield-alt"></i>
+                Politique de confidentialité
+            </a>
+            <a href="./conditions_utilisation.html">
+                <i class="fas fa-file-contract"></i>
+                Conditions d'utilisation
+            </a>
+            <a href="./mentions_legales.html">
+                <i class="fas fa-balance-scale"></i>
+                Mentions légales
+            </a>
+        </div>
+        <div style="opacity: 0.7; margin-top: 20px;">
+            © 2025 BumpX. Tous droits réservés.
+        </div>
+    </footer>
+</body>
+</html>

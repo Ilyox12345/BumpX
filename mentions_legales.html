@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions Légales - BumpX</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        nav {
+            padding: 25px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #5865F2, #3b4de0);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #5865F2, #3b4de0);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(88, 101, 242, 0.4);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .content-box {
+            background: white;
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
+
+        .update-date {
+            color: #4a5568;
+            font-size: 14px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2 i {
+            color: #5865F2;
+            font-size: 24px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #4a5568;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #f5f7fa, #e0e7ff);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 4px solid #5865F2;
+        }
+
+        .info-box strong {
+            color: #1a1a1a;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        a {
+            color: #5865F2;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #1a1a1a, #2d3748);
+            padding: 15px;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #e2e8f0;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        @media (max-width: 768px) {
+            .content-box {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            nav {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-robot"></i>
+            </div>
+            BumpX
+        </a>
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+            Retour à l'accueil
+        </a>
+    </nav>
+
+    <div class="container">
+        <div class="content-box">
+            <h1>Mentions Légales</h1>
+            <div class="update-date">
+                <i class="far fa-calendar"></i>
+                Dernière mise à jour : 15 novembre 2025
+            </div>
+
+            <h2><i class="fas fa-info-circle"></i> Éditeur du site</h2>
+            <p>Le site BumpX est édité à titre non professionnel par un particulier.</p>
+            <div class="info-box">
+                <strong>Contact :</strong> <a href="mailto:contact@bumpx.com">contact@bumpx.com</a>
+            </div>
+
+            <h2><i class="fas fa-server"></i> Hébergement</h2>
+            <div class="info-box">
+                <strong>Hébergeur :</strong> [Nom de votre hébergeur - ex: Vercel, Netlify, OVH, etc.]<br>
+                <strong>Site web :</strong> <a href="#" target="_blank">[URL de l'hébergeur]</a>
+            </div>
+
+            <h2><i class="fas fa-shield-alt"></i> Propriété intellectuelle</h2>
+            <p>L'ensemble du contenu de ce site (textes, images, logos) est protégé par le droit d'auteur. Toute reproduction, même partielle, est interdite sans autorisation préalable.</p>
+
+            <h2><i class="fas fa-user-shield"></i> Données personnelles</h2>
+            <p>Ce site ne collecte aucune donnée personnelle via le site web lui-même. Pour toute question concernant vos données, vous pouvez nous contacter à l'adresse : <a href="mailto:contact@bumpx.com">contact@bumpx.com</a></p>
+
+            <h2><i class="fas fa-gavel"></i> Limitation de responsabilité</h2>
+            <p>BumpX est un bot Discord fourni "en l'état". Nous nous efforçons de maintenir un service de qualité, mais ne pouvons garantir une disponibilité 24h/24 et 7j/7.</p>
+            <p>Nous déclinons toute responsabilité en cas de dysfonctionnement, d'interruption du service ou de perte de données.</p>
+
+            <h2><i class="fas fa-link"></i> Liens externes</h2>
+            <p>Ce site peut contenir des liens vers des sites externes. Nous ne sommes pas responsables du contenu de ces sites tiers.</p>
+
+            <h2><i class="fas fa-envelope"></i> Contact</h2>
+            <p>Pour toute question concernant ces mentions légales ou le fonctionnement du bot, vous pouvez nous contacter :</p>
+            <div class="info-box">
+                <strong>Email :</strong> <a href="mailto:contact@bumpx.com">contact@bumpx.com</a><br>
+                <strong>Discord :</strong> <a href="https://discord.gg/YOUR_INVITE" target="_blank">Serveur Support</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">
+                <i class="fas fa-home"></i>
+                Accueil
+            </a>
+            <a href="privacy.html">
+                <i class="fas fa-shield-alt"></i>
+                Politique de confidentialité
+            </a>
+            <a href="terms.html">
+                <i class="fas fa-file-contract"></i>
+                Conditions d'utilisation
+            </a>
+        </div>
+        <div style="opacity: 0.7; margin-top: 20px;">
+            © 2025 BumpX. Tous droits réservés.
+        </div>
+    </footer>
+</body>
+</html>

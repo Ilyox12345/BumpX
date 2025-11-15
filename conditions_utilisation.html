@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditions d'utilisation - BumpX</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        nav {
+            padding: 25px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #5865F2, #3b4de0);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #5865F2, #3b4de0);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(88, 101, 242, 0.4);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+            margin-bottom: 100px;
+        }
+
+        .content-box {
+            background: white;
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
+
+        .update-date {
+            color: #4a5568;
+            font-size: 14px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2 i {
+            color: #5865F2;
+            font-size: 24px;
+        }
+
+        h3 {
+            font-size: 20px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #4a5568;
+        }
+
+        ul {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: #4a5568;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fff5f5, #ffe0e0);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 4px solid #e53e3e;
+        }
+
+        .warning-box strong {
+            color: #c53030;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #f5f7fa, #e0e7ff);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 4px solid #5865F2;
+        }
+
+        .info-box strong {
+            color: #1a1a1a;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        a {
+            color: #5865F2;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #1a1a1a, #2d3748);
+            padding: 15px;
+            text-align: center;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #e2e8f0;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        @media (max-width: 768px) {
+            .content-box {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            nav {
+                padding: 20px;
+            }
+
+            footer {
+                position: relative;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-robot"></i>
+            </div>
+            BumpX
+        </a>
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+            Retour à l'accueil
+        </a>
+    </nav>
+
+    <div class="container">
+        <div class="content-box">
+            <h1>Conditions d'utilisation</h1>
+            <div class="update-date">
+                <i class="far fa-calendar"></i>
+                Dernière mise à jour : 15 novembre 2025
+            </div>
+
+            <p>En utilisant BumpX (le "Bot"), vous acceptez d'être lié par les présentes conditions d'utilisation. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser le Bot.</p>
+
+            <h2><i class="fas fa-check-circle"></i> Acceptation des conditions</h2>
+            <p>En ajoutant BumpX à votre serveur Discord ou en utilisant ses fonctionnalités, vous acceptez les présentes conditions d'utilisation ainsi que les <a href="https://discord.com/terms">Conditions d'utilisation de Discord</a>.</p>
+
+            <h2><i class="fas fa-robot"></i> Description du service</h2>
+            <p>BumpX est un bot Discord gratuit qui permet de :</p>
+            <ul>
+                <li>Bumper automatiquement votre serveur Discord</li>
+                <li>Programmer des bumps automatiques</li>
+                <li>Consulter des statistiques de bump</li>
+                <li>Personnaliser les messages de bump</li>
+            </ul>
+
+            <h2><i class="fas fa-user-check"></i> Conditions d'utilisation du bot</h2>
+            
+            <h3>Utilisation autorisée</h3>
+            <p>Vous êtes autorisé à utiliser BumpX pour :</p>
+            <ul>
+                <li>Promouvoir votre serveur Discord de manière légale</li>
+                <li>Améliorer la visibilité de votre communauté</li>
+                <li>Automatiser vos bumps selon les règles de Discord</li>
+            </ul>
+
+            <h3>Utilisations interdites</h3>
+            <div class="warning-box">
+                <strong><i class="fas fa-exclamation-triangle"></i> Il est strictement interdit de :</strong>
+                <ul style="margin-top: 10px;">
+                    <li>Utiliser le bot pour du spam ou du harcèlement</li>
+                    <li>Contourner les limitations de Discord</li>
+                    <li>Utiliser le bot pour promouvoir du contenu illégal, violent, haineux ou inapproprié</li>
+                    <li>Tenter de pirater, modifier ou décompiler le bot</li>
+                    <li>Utiliser le bot pour nuire à d'autres utilisateurs ou serveurs</li>
+                    <li>Créer plusieurs comptes pour abuser du service</li>
+                </ul>
+            </div>
+
+            <h2><i class="fas fa-shield-alt"></i> Responsabilités</h2>
+            
+            <h3>Responsabilité de l'utilisateur</h3>
+            <p>Vous êtes entièrement responsable de :</p>
+            <ul>
+                <li>L'utilisation que vous faites du bot</li>
+                <li>Le contenu des messages de bump que vous configurez</li>
+                <li>Le respect des règles de Discord et des serveurs sur lesquels vous bumpez</li>
+                <li>Les permissions accordées au bot sur votre serveur</li>
+            </ul>
+
+            <h3>Limitation de responsabilité</h3>
+            <p>BumpX est fourni "en l'état" sans aucune garantie. Nous ne pouvons être tenus responsables de :</p>
+            <ul>
+                <li>Toute interruption ou dysfonctionnement du service</li>
+                <li>La perte de données</li>
+                <li>Les dommages directs ou indirects causés par l'utilisation du bot</li>
+                <li>Les sanctions appliquées par Discord suite à une mauvaise utilisation</li>
+            </ul>
+
+            <h2><i class="fas fa-ban"></i> Sanctions et suspension</h2>
+            <p>Nous nous réservons le droit de :</p>
+            <ul>
+                <li>Suspendre ou bannir l'accès au bot en cas de violation des présentes conditions</li>
+                <li>Supprimer votre serveur de notre service sans préavis</li>
+                <li>Signaler tout comportement abusif aux autorités compétentes ou à Discord</li>
+            </ul>
+
+            <h2><i class="fas fa-sync-alt"></i> Disponibilité du service</h2>
+            <p>Nous nous efforçons de maintenir le bot disponible 24h/24 et 7j/7, cependant :</p>
+            <ul>
+                <li>Aucune garantie de disponibilité n'est fournie</li>
+                <li>Le service peut être interrompu pour maintenance</li>
+                <li>Nous pouvons arrêter le service à tout moment sans préavis</li>
+            </ul>
+
+            <h2><i class="fas fa-edit"></i> Modifications des conditions</h2>
+            <p>Nous nous réservons le droit de modifier ces conditions à tout moment. Les modifications entrent en vigueur dès leur publication sur cette page. Il est de votre responsabilité de consulter régulièrement ces conditions.</p>
+
+            <h2><i class="fas fa-database"></i> Données collectées</h2>
+            <p>Pour fonctionner, BumpX collecte et stocke :</p>
+            <ul>
+                <li>Les IDs des serveurs Discord</li>
+                <li>Les IDs des utilisateurs qui utilisent les commandes</li>
+                <li>Les configurations de bump (fréquence, messages personnalisés)</li>
+                <li>Les statistiques d'utilisation (nombre de bumps effectués)</li>
+            </ul>
+            <p>Pour plus d'informations, consultez notre <a href="privacy.html">Politique de confidentialité</a>.</p>
+
+            <h2><i class="fas fa-balance-scale"></i> Droit applicable</h2>
+            <p>Les présentes conditions d'utilisation sont régies par le droit français. Tout litige relatif à leur interprétation ou leur exécution relève de la compétence exclusive des tribunaux français.</p>
+
+            <h2><i class="fas fa-envelope"></i> Contact</h2>
+            <p>Pour toute question concernant ces conditions d'utilisation :</p>
+            <div class="info-box">
+                <strong>Email :</strong> <a href="mailto:contact@bumpx.com">contact@bumpx.com</a><br>
+                <strong>Discord :</strong> <a href="https://discord.gg/YOUR_INVITE" target="_blank">Serveur Support</a>
+            </div>
+
+            <p style="margin-top: 40px; font-style: italic; color: #718096;">
+                En utilisant BumpX, vous reconnaissez avoir lu, compris et accepté l'intégralité de ces conditions d'utilisation.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">
+                <i class="fas fa-home"></i>
+                Accueil
+            </a>
+            <a href="privacy.html">
+                <i class="fas fa-shield-alt"></i>
+                Politique de confidentialité
+            </a>
+            <a href="legal.html">
+                <i class="fas fa-balance-scale"></i>
+                Mentions légales
+            </a>
+        </div>
+        <div style="opacity: 0.7; margin-top: 20px;">
+            © 2025 BumpX. Tous droits réservés.
+        </div>
+    </footer>
+</body>
+</html>
