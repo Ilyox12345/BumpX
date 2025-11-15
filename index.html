@@ -182,58 +182,60 @@
     </footer>
 
     <script>
-        // Countdown 7 jours
-        const targetDate = new Date();
-        targetDate.setDate(targetDate.getDate() + 7);
+    // Countdown 5 jours
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 5);
 
-        function updateCountdown() {
-            const now = new Date();
-            const diff = targetDate - now;
+    function updateCountdown() {
+        const now = new Date();
+        const diff = targetDate - now;
 
-            const days = Math.floor(diff / 86400000);
-            const hours = Math.floor((diff % 86400000) / 3600000);
-            const mins = Math.floor((diff % 3600000) / 60000);
-            const secs = Math.floor((diff % 60000) / 1000);
+        const days = Math.floor(diff / 86400000);
+        const hours = Math.floor((diff % 86400000) / 3600000);
+        const mins = Math.floor((diff % 3600000) / 60000);
+        const secs = Math.floor((diff % 60000) / 1000);
 
-            document.getElementById("countdown").textContent =
-                `${days}j ${hours}h ${mins}m ${secs}s`;
+        document.getElementById("countdown").textContent =
+            `${days}j ${hours}h ${mins}m ${secs}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Translations
+    const translations = {
+        fr: {
+            title: "Nous arrivons bientôt",
+            subtitle: "Le site officiel BumpX est en cours de construction. Il sera disponible dans :"
+        },
+        en: {
+            title: "We're Coming Soon",
+            subtitle: "The official BumpX website is under construction. It will be available in:"
+        },
+        de: {
+            title: "Wir kommen bald",
+            subtitle: "Die offizielle BumpX-Website befindet sich im Aufbau. Sie wird verfügbar sein in:"
+        },
+        es: {
+            title: "Próximamente",
+            subtitle: "El sitio oficial de BumpX está en construcción. Estará disponible en:"
+        },
+        ar: {
+            title: "سوف نصل قريبًا",
+            subtitle: "موقع BumpX الرسمي قيد الإنشاء. سيكون جاهزًا خلال:"
         }
+    };
 
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
+    function setLang(lang) {
+        document.getElementById("title").textContent = translations[lang].title;
+        document.getElementById("subtitle").textContent = translations[lang].subtitle;
 
-        // Translations
-        const translations = {
-            fr: {
-                title: "Nous arrivons bientôt",
-                subtitle: "Le site officiel BumpX est en cours de construction. Il sera disponible dans :"
-            },
-            en: {
-                title: "We're Coming Soon",
-                subtitle: "The official BumpX website is under construction. It will be available in:"
-            },
-            de: {
-                title: "Wir kommen bald",
-                subtitle: "Die offizielle BumpX-Website befindet sich im Aufbau. Sie wird verfügbar sein in:"
-            },
-            es: {
-                title: "Próximamente",
-                subtitle: "El sitio oficial de BumpX está en construcción. Estará disponible en:"
-            },
-            ar: {
-                title: "سوف نصل قريبًا",
-                subtitle: "موقع BumpX الرسمي قيد الإنشاء. سيكون جاهزًا خلال:"
-            }
-        };
+        // mode RTL pour arabe
+        document.body.style.direction = lang === "ar" ? "rtl" : "ltr";
+    }
+</script>
 
-        function setLang(lang) {
-            document.getElementById("title").textContent = translations[lang].title;
-            document.getElementById("subtitle").textContent = translations[lang].subtitle;
-
-            // mode RTL pour arabe
-            document.body.style.direction = lang === "ar" ? "rtl" : "ltr";
-        }
-    </script>
 
 </body>
 </html>
+
