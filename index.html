@@ -181,14 +181,27 @@
         © 2025 BumpX — Tous droits réservés.
     </footer>
 
-    <script>
-    // Countdown 5 jours
-    const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 5);
+   <script>
+    // Sauvegarde ou récupération de la date cible depuis le navigateur
+    let targetDate = localStorage.getItem("bumpx_target_date");
+
+    if (!targetDate) {
+        const date = new Date();
+        date.setDate(date.getDate() + 5); // durée fixe : 5 jours
+        targetDate = date.getTime();
+        localStorage.setItem("bumpx_target_date", targetDate);
+    } else {
+        targetDate = parseInt(targetDate);
+    }
 
     function updateCountdown() {
-        const now = new Date();
+        const now = new Date().getTime();
         const diff = targetDate - now;
+
+        if (diff <= 0) {
+            document.getElementById("countdown").textContent = "Votre site est prêt 🎉";
+            return;
+        }
 
         const days = Math.floor(diff / 86400000);
         const hours = Math.floor((diff % 86400000) / 3600000);
@@ -202,7 +215,7 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // Translations
+    // Traductions
     const translations = {
         fr: {
             title: "Nous arrivons bientôt",
@@ -230,7 +243,6 @@
         document.getElementById("title").textContent = translations[lang].title;
         document.getElementById("subtitle").textContent = translations[lang].subtitle;
 
-        // mode RTL pour arabe
         document.body.style.direction = lang === "ar" ? "rtl" : "ltr";
     }
 </script>
@@ -238,4 +250,5 @@
 
 </body>
 </html>
+
 
