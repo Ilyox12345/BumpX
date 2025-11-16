@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Connecting...</title>
+</head>
+<body>
+    <p>Connexion en cours...</p>
+
+    <script>
+        // Récupération du code envoyé par Discord
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get("code");
+
+        if (!code) {
+            document.body.innerHTML = "<h2>Erreur : aucun code OAuth2 reçu.</h2>";
+            throw new Error("No OAuth2 code");
+        }
+
+        // Redirection vers ton Worker pour traiter le code OAuth2
+        window.location.href = `https://bumpxx.ilyesquibroute93.workers.dev/auth/callback?code=${code}`;
+    </script>
+
+</body>
+</html>
