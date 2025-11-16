@@ -5,24 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BumpX - Arrive bientôt</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="https://bumpx.fr/favicon.png">
-<link rel="apple-touch-icon" href="https://bumpx.fr/favicon.png">
+    <link rel="icon" type="image/png" href="https://bumpx.fr/favicon.png">
+    <link rel="apple-touch-icon" href="https://bumpx.fr/favicon.png">
 
-<!-- Open Graph -->
-<meta property="og:title" content="BumpX – Agrandissez votre communauté !">
-<meta property="og:description" content="Bienvenue sur BumpX. Agrandissez votre communauté sur discord !">
-<meta property="og:url" content="https://bumpx.fr">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://bumpx.fr/image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+    <meta property="og:title" content="BumpX – Agrandissez votre communauté !">
+    <meta property="og:description" content="Bienvenue sur BumpX. Agrandissez votre communauté sur discord !">
+    <meta property="og:url" content="https://bumpx.fr">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://bumpx.fr/image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
-<!-- Twitter Cards -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="BumpX – Votre service">
-<meta name="twitter:description" content="Bienvenue sur BumpX. Agrandissez votre communauté sur discord !">
-<meta name="twitter:image" content="https://bumpx.fr/image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BumpX – Votre service">
+    <meta name="twitter:description" content="Bienvenue sur BumpX. Agrandissez votre communauté sur discord !">
+    <meta name="twitter:image" content="https://bumpx.fr/image.png">
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -32,6 +29,34 @@
             background: linear-gradient(135deg, #f5f7fa, #e3e9ff);
             color: #111;
             overflow-x: hidden;
+        }
+
+        /* Film grain animation */
+        .film-grain {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.imgur.com/o7QZ9Tv.png');
+            opacity: 0.18;
+            mix-blend-mode: overlay;
+            animation: grain 1.2s steps(6) infinite;
+        }
+
+        @keyframes grain {
+            0% { transform: translate(0,0); }
+            10% { transform: translate(-5px,3px); }
+            20% { transform: translate(4px,-6px); }
+            30% { transform: translate(-3px,2px); }
+            40% { transform: translate(5px,-4px); }
+            50% { transform: translate(-4px,5px); }
+            60% { transform: translate(3px,-3px); }
+            70% { transform: translate(-2px,4px); }
+            80% { transform: translate(6px,-2px); }
+            90% { transform: translate(-3px,1px); }
+            100% { transform: translate(0,0); }
         }
 
         .shape {
@@ -66,7 +91,6 @@
             100% { transform: translateY(0px); }
         }
 
-        /* Container */
         .container {
             width: 90%;
             max-width: 900px;
@@ -102,7 +126,6 @@
             -webkit-background-clip: text;
         }
 
-        /* Discord button */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -124,7 +147,6 @@
             box-shadow: 0 22px 55px rgba(88, 101, 242, 0.65);
         }
 
-        /* Language selector */
         .lang-selector {
             margin-top: 30px;
             display: flex;
@@ -159,117 +181,107 @@
             font-size: 16px;
             margin-top: 80px;
         }
-
-        @media (max-width: 700px) {
-            h1 { font-size: 48px; }
-            p { font-size: 20px; }
-            #countdown { font-size: 30px; }
-            .container { padding: 50px 25px; }
-        }
-
     </style>
 </head>
 <body>
 
-    <div class="shape circle"></div>
-    <div class="shape square"></div>
+<div class="film-grain"></div>
+<div class="shape circle"></div>
+<div class="shape square"></div>
 
-    <div class="container" id="container">
+<div class="container" id="container">
 
-        <h1 id="title">Nous arrivons bientôt</h1>
-        <p id="subtitle">Le site officiel BumpX est en cours de construction. Il sera disponible dans :</p>
+    <h1 id="title">Nous arrivons bientôt</h1>
+    <p id="subtitle">Le site officiel BumpX est en cours de construction. Il sera disponible dans :</p>
 
-        <div id="countdown">Chargement...</div>
+    <div id="countdown">Chargement...</div>
 
-        <div class="lang-selector">
-            <button class="lang-btn" onclick="setLang('fr')">🇫🇷 Français</button>
-            <button class="lang-btn" onclick="setLang('en')">🇬🇧 English</button>
-            <button class="lang-btn" onclick="setLang('de')">🇩🇪 Deutsch</button>
-            <button class="lang-btn" onclick="setLang('es')">🇪🇸 Español</button>
-            <button class="lang-btn" onclick="setLang('ar')">🇸🇦 العربية</button>
-        </div>
-
-        <a class="btn" href="https://discord.gg/uMfmtRqM" target="_blank">
-            <i class="fab fa-discord"></i> Nous rejoindre sur Discord
-        </a>
-
+    <div class="lang-selector">
+        <button class="lang-btn" onclick="setLang('fr')">🇫🇷 Français</button>
+        <button class="lang-btn" onclick="setLang('en')">🇬🇧 English</button>
+        <button class="lang-btn" onclick="setLang('de')">🇩🇪 Deutsch</button>
+        <button class="lang-btn" onclick="setLang('es')">🇪🇸 Español</button>
+        <button class="lang-btn" onclick="setLang('ar')">🇸🇦 العربية</button>
     </div>
 
-    <footer>
-        © 2025 BumpX — Tous droits réservés.
-    </footer>
+    <a class="btn" id="discordBtn" href="https://discord.gg/uMfmtRqM" target="_blank">
+        <i class="fab fa-discord"></i> Nous rejoindre sur Discord
+    </a>
 
-   <script>
-    // Sauvegarde ou récupération de la date cible depuis le navigateur
-    let targetDate = localStorage.getItem("bumpx_target_date");
+</div>
 
-    if (!targetDate) {
-        const date = new Date();
-        date.setDate(date.getDate() + 5); // durée fixe : 5 jours
-        targetDate = date.getTime();
-        localStorage.setItem("bumpx_target_date", targetDate);
-    } else {
-        targetDate = parseInt(targetDate);
+<footer>
+    © 2025 BumpX — Tous droits réservés.
+</footer>
+
+<script>
+let targetDate = localStorage.getItem("bumpx_target_date");
+
+if (!targetDate) {
+    const date = new Date();
+    date.setDate(date.getDate() + 5);
+    targetDate = date.getTime();
+    localStorage.setItem("bumpx_target_date", targetDate);
+} else {
+    targetDate = parseInt(targetDate);
+}
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+        document.getElementById("countdown").textContent = "Votre site est prêt 🎉";
+        return;
     }
 
-    function updateCountdown() {
-        const now = new Date().getTime();
-        const diff = targetDate - now;
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    const secs = Math.floor((diff % 60000) / 1000);
 
-        if (diff <= 0) {
-            document.getElementById("countdown").textContent = "Votre site est prêt 🎉";
-            return;
-        }
+    document.getElementById("countdown").textContent = `${days}j ${hours}h ${mins}m ${secs}s`;
+}
 
-        const days = Math.floor(diff / 86400000);
-        const hours = Math.floor((diff % 86400000) / 3600000);
-        const mins = Math.floor((diff % 3600000) / 60000);
-        const secs = Math.floor((diff % 60000) / 1000);
+setInterval(updateCountdown, 1000);
+updateCountdown();
 
-        document.getElementById("countdown").textContent =
-            `${days}j ${hours}h ${mins}m ${secs}s`;
+const translations = {
+    fr: {
+        title: "Nous arrivons bientôt",
+        subtitle: "Le site officiel BumpX est en cours de construction. Il sera disponible dans :",
+        btn: "Nous rejoindre sur Discord"
+    },
+    en: {
+        title: "We're Coming Soon",
+        subtitle: "The official BumpX website is under construction. It will be available in:",
+        btn: "Join us on Discord"
+    },
+    de: {
+        title: "Wir kommen bald",
+        subtitle: "Die offizielle BumpX-Website befindet sich im Aufbau. Sie wird verfügbar sein in:",
+        btn: "Treten Sie unserem Discord bei"
+    },
+    es: {
+        title: "Próximamente",
+        subtitle: "El sitio oficial de BumpX está en construcción. Estará disponible en:",
+        btn: "Únete a nuestro Discord"
+    },
+    ar: {
+        title: "سوف نصل قريبًا",
+        subtitle: "موقع BumpX الرسمي قيد الإنشاء. سيكون جاهزًا خلال:",
+        btn: "انضم إلينا على ديسكورد"
     }
+};
 
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-
-    // Traductions
-    const translations = {
-        fr: {
-            title: "Nous arrivons bientôt",
-            subtitle: "Le site officiel BumpX est en cours de construction. Il sera disponible dans :"
-        },
-        en: {
-            title: "We're Coming Soon",
-            subtitle: "The official BumpX website is under construction. It will be available in:"
-        },
-        de: {
-            title: "Wir kommen bald",
-            subtitle: "Die offizielle BumpX-Website befindet sich im Aufbau. Sie wird verfügbar sein in:"
-        },
-        es: {
-            title: "Próximamente",
-            subtitle: "El sitio oficial de BumpX está en construcción. Estará disponible en:"
-        },
-        ar: {
-            title: "سوف نصل قريبًا",
-            subtitle: "موقع BumpX الرسمي قيد الإنشاء. سيكون جاهزًا خلال:"
-        }
-    };
-
-    function setLang(lang) {
-        document.getElementById("title").textContent = translations[lang].title;
-        document.getElementById("subtitle").textContent = translations[lang].subtitle;
-
-        document.body.style.direction = lang === "ar" ? "rtl" : "ltr";
-    }
+function setLang(lang) {
+    document.getElementById("title").textContent = translations[lang].title;
+    document.getElementById("subtitle").textContent = translations[lang].subtitle;
+    document.getElementById("discordBtn").innerHTML = `<i class=\"fab fa-discord\"></i> ${translations[lang].btn}`;
+    document.body.style.direction = lang === "ar" ? "rtl" : "ltr";
+}
 </script>
-
 
 </body>
 </html>
-
-
-
-
 
