@@ -1,25 +1,164 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Connecting...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BumpX - Panel Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #ffffff; color: #1a1a1a; overflow-x: hidden; }
+
+        /* --- BACKGROUND + SHAPES --- */
+        .gradient-bg { position: fixed; width: 100%; height: 100%; background: linear-gradient(135deg, #f5f7fa, #c3cfe2); z-index: -1; }
+        .shapes { position: fixed; width: 100%; height: 100%; overflow: hidden; z-index: -1; }
+        .shape { position: absolute; opacity: 0.1; animation: float 20s infinite ease-in-out; }
+        .shape-circle { width: 300px; height: 300px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; top: 10%; left: 10%; }
+        .shape-square { width: 200px; height: 200px; background: linear-gradient(135deg, #5865F2, #3b4de0); border-radius: 30px; top: 60%; right: 10%; animation-delay: -5s; }
+        .shape-triangle { width: 0; height: 0; border-left: 150px solid transparent; border-right: 150px solid transparent; border-bottom: 260px solid rgba(118,75,162,0.3); bottom: 20%; left: 50%; animation-delay: -10s; }
+
+        @keyframes float { 0%,100%{transform:translateY(0) rotate(0deg);} 50%{transform:translateY(-30px) rotate(10deg);} }
+
+        /* --- NAVBAR --- */
+        nav { padding: 25px 50px; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 28px; font-weight: bold; display: flex; align-items: center; gap: 12px; color: #1a1a1a; }
+        .logo-icon { width: 45px; height: 45px; background: linear-gradient(135deg, #5865F2, #3b4de0); border-radius: 12px; display: flex; align-items:center; justify-content:center; color:white; font-size:20px; }
+
+        /* BUTTON LOGIN */
+        .login-btn { padding: 12px 22px; background: linear-gradient(135deg,#5865F2,#4754d7); color:white!important; border-radius:12px; font-weight:600; display:flex; gap:10px; align-items:center; text-decoration:none; box-shadow:0 4px 14px rgba(88,101,242,0.35); }
+        .login-btn:hover { transform: translateY(-3px); box-shadow:0 8px 24px rgba(88,101,242,0.55); }
+
+        /* PANEL ADMIN */
+        #panel { max-width: 900px; margin: 80px auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); display: none; }
+        .card { background: #f7f9fc; padding: 25px; border-radius: 15px; margin-bottom: 20px; }
+        h2 { font-size: 32px; margin-bottom: 20px; }
+            .admin-btn {
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #5865F2, #3b4de0);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 14px rgba(88,101,242,0.35);
+            transition: 0.2s;
+        }
+        .admin-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(88,101,242,0.55);
+        }
+</style>
 </head>
 <body>
-    <p>Connexion en cours...</p>
 
-    <script>
-        // Récupération du code envoyé par Discord
-        const params = new URLSearchParams(window.location.search);
-        const code = params.get("code");
+<div class="gradient-bg"></div>
+<div class="shapes">
+    <div class="shape shape-circle"></div>
+    <div class="shape shape-square"></div>
+    <div class="shape shape-triangle"></div>
+</div>
 
-        if (!code) {
-            document.body.innerHTML = "<h2>Erreur : aucun code OAuth2 reçu.</h2>";
-            throw new Error("No OAuth2 code");
-        }
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">
+        <div class="logo-icon"><i class="fas fa-robot"></i></div>
+        BumpX Admin
+    </div>
+    <a class="login-btn" id="loginBtn"><i class="fab fa-discord"></i> Connexion</a>
+</nav>
 
-        // Redirection vers ton Worker pour traiter le code OAuth2
-        window.location.href = `https://bumpxx.ilyesquibroute93.workers.dev/auth/callback?code=${code}`;
-    </script>
+<!-- LOGIN SCREEN -->
+<div id="login" style="text-align:center; padding-top:120px;">
+    <h1>Connexion Administrateur</h1>
+    <p style="color:#555; margin-top:10px;">Accès réservé aux administrateurs BumpX</p>
+</div>
 
-</body>
-</html>
+<!-- PANEL -->
+<div id="panel">
+    <h2>Panel Administrateur</h2>
+
+    <div class="card" id="userinfo">Chargement…</div>
+
+    <div class="card">
+        <h3>Actions Admin</h3>
+        <div style="display:flex; gap:15px; margin-bottom:15px;">
+            <button class="admin-btn" onclick="loadBans()"><i class='fas fa-ban'></i> Voir Bans</button>
+            <button class="admin-btn" onclick="loadBios()"><i class='fas fa-id-card'></i> Voir Bios</button>
+        </div>
+        <pre id="output"></pre>
+    </div>
+</div>
+
+<script>
+const CLIENT_ID = "1439239509521989745";
+const REDIRECT_URI = "https://bumpx.fr/auth.html";  // 🔥 redirect final
+const API = "https://bumpxbot-status.ilyesquibroute93.workers.dev";
+
+// OAuth2 URL
+const loginURL = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=code&scope=identify`;
+document.getElementById("loginBtn").href = loginURL;
+
+let jwt = null;
+const code = new URLSearchParams(window.location.search).get("code");
+
+if (code) {
+    document.getElementById("login").style.display = "none";
+    fetchDiscordUser(code);
+}
+
+async function fetchDiscordUser(code) {
+    const res = await fetch("https://discord.com/api/oauth2/token", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+            client_id: CLIENT_ID,
+            client_secret: "TON_CLIENT_SECRET",
+            grant_type: "authorization_code",
+            code,
+            redirect_uri: REDIRECT_URI
+        })
+    });
+
+    const data = await res.json();
+
+    const userRes = await fetch("https://discord.com/api/users/@me", {
+        headers: { Authorization: `${data.token_type} ${data.access_token}` }
+    });
+    const user = await userRes.json();
+
+    const jwtRes = await fetch(`${API}/auth/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: user.id })
+    });
+
+    const jwtJson = await jwtRes.json();
+    if (!jwtJson.token) return alert("Accès refusé — Non admin");
+
+    jwt = jwtJson.token;
+
+    document.getElementById("panel").style.display = "block";
+    document.getElementById("userinfo").innerText = `Connecté en tant que ${user.username}#${user.discriminator}`;
+
+    loadStats();
+}
+
+async function loadStats() {
+    const res = await fetch(`${API}/stats`);
+    const json = await res.json();
+    document.getElementById("stats").innerText = JSON.stringify(json, null, 2);
+}
+
+async function loadBans() {
+    const res = await fetch(`${API}/admin/ban/list`, { headers: { Authorization: "Bearer " + jwt }});
+    document.getElementById("output").innerText = JSON.stringify(await res.json(), null, 2);
+}
+
+async function loadBios() {
+    const res = await fetch(`${API}/admin/bio/list`, { headers: { Authorization: "Bearer " + jwt }});
+    document.get
