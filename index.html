@@ -3,285 +3,453 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BumpX - Arrive bientôt</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="https://bumpx.fr/favicon.png">
-    <link rel="apple-touch-icon" href="https://bumpx.fr/favicon.png">
-
-    <meta property="og:title" content="BumpX – Agrandissez votre communauté !">
-    <meta property="og:description" content="Bienvenue sur BumpX. Agrandissez votre communauté sur discord !">
-    <meta property="og:url" content="https://bumpx.fr">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://bumpx.fr/image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="BumpX – Votre service">
-    <meta name="twitter:description" content="Bienvenue sur BumpX. Agrandissez votre communauté sur discord !">
-    <meta name="twitter:image" content="https://bumpx.fr/image.png">
-
+    <title>BumpX - Bientôt disponible</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
-            font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa, #e3e9ff);
-            color: #111;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #000000;
+            color: #fff;
+            min-height: 100vh;
             overflow-x: hidden;
         }
 
-        /* Film grain animation */
-        .film-grain {
-            pointer-events: none;
+        .stars {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://i.imgur.com/o7QZ9Tv.png');
-            opacity: 0.18;
-            mix-blend-mode: overlay;
-            animation: grain 1.2s steps(6) infinite;
+            pointer-events: none;
         }
 
-        @keyframes grain {
-            0% { transform: translate(0,0); }
-            10% { transform: translate(-5px,3px); }
-            20% { transform: translate(4px,-6px); }
-            30% { transform: translate(-3px,2px); }
-            40% { transform: translate(5px,-4px); }
-            50% { transform: translate(-4px,5px); }
-            60% { transform: translate(3px,-3px); }
-            70% { transform: translate(-2px,4px); }
-            80% { transform: translate(6px,-2px); }
-            90% { transform: translate(-3px,1px); }
-            100% { transform: translate(0,0); }
-        }
-
-        .shape {
+        .star {
             position: absolute;
-            opacity: 0.12;
-            filter: blur(2px);
-            animation: float 18s ease-in-out infinite;
-        }
-
-        .circle {
-            width: 420px;
-            height: 420px;
+            width: 2px;
+            height: 2px;
+            background: white;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            top: -80px;
-            left: -80px;
+            animation: twinkle 3s infinite;
         }
 
-        .square {
-            width: 350px;
-            height: 350px;
-            border-radius: 35px;
-            background: linear-gradient(135deg, #5865F2, #3b4de0);
-            bottom: -120px;
-            right: -60px;
-            animation-delay: -7s;
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
         }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-40px); }
-            100% { transform: translateY(0px); }
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at top, #1e1b4b 0%, #000000 50%);
+            z-index: 0;
+        }
+
+        .animated-gradient {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+            animation: moveGradient 15s ease infinite;
+        }
+
+        @keyframes moveGradient {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, 50px) scale(1.1); }
         }
 
         .container {
-            width: 90%;
-            max-width: 900px;
-            margin: 180px auto 120px;
-            padding: 70px 50px;
-            background: rgba(255, 255, 255, 0.65);
-            border-radius: 35px;
-            backdrop-filter: blur(15px);
-            box-shadow: 0 15px 60px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 72px;
-            font-weight: 900;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-text-fill-color: transparent;
-            -webkit-background-clip: text;
-        }
-
-        p {
-            margin-top: 20px;
-            font-size: 24px;
-            color: #4a5568;
-        }
-
-        #countdown {
-            margin-top: 25px;
-            font-size: 38px;
-            font-weight: 700;
-            background: linear-gradient(135deg, #5865F2, #3b4de0);
-            -webkit-text-fill-color: transparent;
-            -webkit-background-clip: text;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            margin-top: 45px;
-            padding: 20px 55px;
-            background: linear-gradient(135deg, #5865F2, #3b4de0);
-            color: white;
-            text-decoration: none;
-            font-size: 20px;
-            border-radius: 50px;
-            font-weight: 700;
-            box-shadow: 0 15px 35px rgba(88, 101, 242, 0.4);
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 22px 55px rgba(88, 101, 242, 0.65);
-        }
-
-        .lang-selector {
-            margin-top: 30px;
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
             display: flex;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            gap: 14px;
-            flex-wrap: wrap;
+            padding: 2rem;
         }
 
-        .lang-btn {
-            padding: 10px 18px;
-            background: rgba(255, 255, 255, 0.4);
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            font-size: 16px;
+        .logo-container {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .logo-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulseGlow 3s ease-in-out infinite;
+            filter: blur(40px);
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+        }
+
+        .logo {
+            position: relative;
+            font-size: 8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #a855f7 0%, #6366f1 50%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.05em;
+            animation: float 4s ease-in-out infinite;
+            text-shadow: 0 0 100px rgba(168, 85, 247, 0.5);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(2deg); }
+        }
+
+        .tagline {
+            font-size: 2rem;
+            background: linear-gradient(to right, #e0e7ff, #a5b4fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .description {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 700px;
+            text-align: center;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        .countdown-container {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            border-radius: 30px;
+            padding: 3rem 4rem;
+            margin-bottom: 3rem;
+            box-shadow: 
+                0 20px 60px rgba(139, 92, 246, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            animation: borderPulse 2s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        @keyframes borderPulse {
+            0%, 100% { 
+                border-color: rgba(139, 92, 246, 0.3);
+                box-shadow: 0 20px 60px rgba(139, 92, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            }
+            50% { 
+                border-color: rgba(139, 92, 246, 0.6);
+                box-shadow: 0 20px 80px rgba(139, 92, 246, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            }
+        }
+
+        .countdown-label {
+            font-size: 1rem;
+            color: #a5b4fc;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .countdown-date {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff 0%, #c7d2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             display: flex;
             align-items: center;
-            gap: 8px;
-            transition: 0.3s;
+            justify-content: center;
+            gap: 1rem;
         }
 
-        .lang-btn:hover {
-            background: rgba(255, 255, 255, 0.7);
-            transform: translateY(-4px);
+        .rocket {
+            font-size: 3rem;
+            animation: rocketFloat 2s ease-in-out infinite;
         }
 
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: #555;
-            font-size: 16px;
-            margin-top: 80px;
+        @keyframes rocketFloat {
+            0%, 100% { transform: translateY(0px) rotate(-10deg); }
+            50% { transform: translateY(-15px) rotate(-5deg); }
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            width: 100%;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(30, 27, 75, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.5), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(139, 92, 246, 0.5);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            animation: iconBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes iconBounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #e0e7ff;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-description {
+            color: #94a3b8;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: linear-gradient(135deg, #a855f7, #3b82f6);
+            border-radius: 50%;
+            animation: particleFloat 20s infinite;
+            opacity: 0;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 4.5rem;
+            }
+
+            .tagline {
+                font-size: 1.5rem;
+            }
+
+            .description {
+                font-size: 1rem;
+            }
+
+            .countdown-container {
+                padding: 2rem 2rem;
+            }
+
+            .countdown-date {
+                font-size: 2rem;
+                flex-direction: column;
+            }
+
+            .rocket {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="gradient-bg"></div>
+    <div class="animated-gradient"></div>
+    <div class="particles" id="particles"></div>
+    <div class="stars" id="stars"></div>
 
-<div class="film-grain"></div>
-<div class="shape circle"></div>
-<div class="shape square"></div>
+    <div class="container">
+        <div class="logo-container">
+            <div class="logo-glow"></div>
+            <h1 class="logo">BumpX</h1>
+        </div>
 
-<div class="container" id="container">
+        <p class="tagline">Propulsez votre communauté vers les étoiles</p>
+        
+        <p class="description">
+            Le bot Discord nouvelle génération qui transforme votre serveur en destination incontournable. 
+            Atteignez des milliers de membres passionnés et bâtissez la communauté de vos rêves.
+        </p>
 
-    <h1 id="title">Nous arrivons bientôt</h1>
-    <p id="subtitle">Le site officiel BumpX est en cours de construction. Il sera disponible dans :</p>
+        <div class="countdown-container">
+            <div class="countdown-label">Lancement imminent</div>
+            <div class="countdown-date">
+                <span class="rocket">🚀</span>
+                <span>15 Janvier</span>
+            </div>
+        </div>
 
-    <div id="countdown">Chargement...</div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">⚡</span>
+                <h3 class="feature-title">Boost Instantané</h3>
+                <p class="feature-description">
+                    Promotion automatique de votre serveur auprès de milliers de communautés actives
+                </p>
+            </div>
 
-    <div class="lang-selector">
-        <button class="lang-btn" onclick="setLang('fr')">🇫🇷 Français</button>
-        <button class="lang-btn" onclick="setLang('en')">🇬🇧 English</button>
-        <button class="lang-btn" onclick="setLang('de')">🇩🇪 Deutsch</button>
-        <button class="lang-btn" onclick="setLang('es')">🇪🇸 Español</button>
-        <button class="lang-btn" onclick="setLang('ar')">🇸🇦 العربية</button>
+            <div class="feature-card">
+                <span class="feature-icon">🎯</span>
+                <h3 class="feature-title">Ciblage Intelligent</h3>
+                <p class="feature-description">
+                    Atteignez précisément les membres qui correspondent à votre communauté
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">📊</span>
+                <h3 class="feature-title">Analytics Puissants</h3>
+                <p class="feature-description">
+                    Suivez vos performances en temps réel avec des statistiques détaillées
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🛡️</span>
+                <h3 class="feature-title">100% Sécurisé</h3>
+                <p class="feature-description">
+                    Respecte toutes les règles Discord pour une croissance saine et durable
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🎨</span>
+                <h3 class="feature-title">Personnalisable</h3>
+                <p class="feature-description">
+                    Créez des messages de bump uniques qui reflètent l'identité de votre serveur
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">💎</span>
+                <h3 class="feature-title">Premium & Gratuit</h3>
+                <p class="feature-description">
+                    Profitez de fonctionnalités essentielles gratuitement, avec des options premium
+                </p>
+            </div>
+        </div>
     </div>
 
-    <a class="btn" id="discordBtn" href="https://discord.gg/uMfmtRqM" target="_blank">
-        <i class="fab fa-discord"></i> Nous rejoindre sur Discord
-    </a>
+    <script>
+        // Créer des étoiles
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
 
-</div>
-
-<footer>
-    © 2025 BumpX — Tous droits réservés.
-</footer>
-
-<script>
-let targetDate = localStorage.getItem("bumpx_target_date");
-
-if (!targetDate) {
-    const date = new Date();
-    date.setDate(date.getDate() + 5);
-    targetDate = date.getTime();
-    localStorage.setItem("bumpx_target_date", targetDate);
-} else {
-    targetDate = parseInt(targetDate);
-}
-
-function updateCountdown() {
-    const now = new Date().getTime();
-    const diff = targetDate - now;
-
-    if (diff <= 0) {
-        document.getElementById("countdown").textContent = "Votre site est prêt 🎉";
-        return;
-    }
-
-    const days = Math.floor(diff / 86400000);
-    const hours = Math.floor((diff % 86400000) / 3600000);
-    const mins = Math.floor((diff % 3600000) / 60000);
-    const secs = Math.floor((diff % 60000) / 1000);
-
-    document.getElementById("countdown").textContent = `${days}j ${hours}h ${mins}m ${secs}s`;
-}
-
-setInterval(updateCountdown, 1000);
-updateCountdown();
-
-const translations = {
-    fr: {
-        title: "Nous arrivons bientôt",
-        subtitle: "Le site officiel BumpX est en cours de construction. Il sera disponible dans :",
-        btn: "Nous rejoindre sur Discord"
-    },
-    en: {
-        title: "We're Coming Soon",
-        subtitle: "The official BumpX website is under construction. It will be available in:",
-        btn: "Join us on Discord"
-    },
-    de: {
-        title: "Wir kommen bald",
-        subtitle: "Die offizielle BumpX-Website befindet sich im Aufbau. Sie wird verfügbar sein in:",
-        btn: "Treten Sie unserem Discord bei"
-    },
-    es: {
-        title: "Próximamente",
-        subtitle: "El sitio oficial de BumpX está en construcción. Estará disponible en:",
-        btn: "Únete a nuestro Discord"
-    },
-    ar: {
-        title: "سوف نصل قريبًا",
-        subtitle: "موقع BumpX الرسمي قيد الإنشاء. سيكون جاهزًا خلال:",
-        btn: "انضم إلينا على ديسكورد"
-    }
-};
-
-function setLang(lang) {
-    document.getElementById("title").textContent = translations[lang].title;
-    document.getElementById("subtitle").textContent = translations[lang].subtitle;
-    document.getElementById("discordBtn").innerHTML = `<i class=\"fab fa-discord\"></i> ${translations[lang].btn}`;
-    document.body.style.direction = lang === "ar" ? "rtl" : "ltr";
-}
-</script>
-
+        // Créer des particules
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+    </script>
 </body>
 </html>
-
